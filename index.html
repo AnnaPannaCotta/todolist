@@ -28,6 +28,16 @@
       ></nav>
     </header>
     <main> 
+      <div
+            data-hx-trigger="load"
+            data-hx-swap="outerHTML"
+            data-hx-get="main-page.sidebar.partial.html"
+          ></div>
+          <div 
+          data-hx-trigger="load"
+          data-hx-swap="outerHTML"
+          data-hx-get="main-page.main-content.partial.html"
+          ></div>
     </main>
   </body>
 </html>
