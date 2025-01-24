@@ -2,6 +2,7 @@
     padding: 40px 100px 40px 100px;
     position: relative;
     max-width: 100%;
+    background-color: rgba(255, 229, 196, 0.918);
 }
 .header__name {
     display: flex;
