@@ -1,0 +1,23 @@
+.header {
+    padding: 40px 100px 40px 100px;
+    position: relative;
+    max-width: 100%;
+}
+.header__name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+}
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    flex-direction: column;
+}
+.entry-form {
+    flex-direction: column;
+}
