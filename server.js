@@ -1,29 +1,24 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
-const authRoutes = require('./routes/auth');
+require('dotenv').config();
 
-dotenv.config();
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+app.use(express.json());
 
-// Підключення до бази даних MongoDB
+// Підключення до бази даних
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Підключено до бази даних'))
-    .catch((error) => console.error('Помилка підключення до бази даних:', error));
+    .then(() => console.log('База даних підключена'))
+    .catch(err => console.error('Помилка підключення до бази:', err));
 
-// Мідлвари
-app.use(bodyParser.json());
+// Маршрути
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
 
 // Запуск сервера
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Сервер запущено на порту ${PORT}`);
-});
-
-app.use((req, res, next) => {
-    console.log(`Запит: ${req.method} ${req.url}`);
-    next();
+    console.log(`Сервер працює на порту ${PORT}`);
 });
