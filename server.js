@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
@@ -20,9 +21,12 @@ app.use('/api/user', userRoutes);
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // Запуск сервера
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Сервер працює на порту ${PORT}`);
 });
+const cors = require('cors');
+app.use(cors())

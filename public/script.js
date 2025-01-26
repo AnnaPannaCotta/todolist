@@ -38,7 +38,7 @@ async function login(username, password) {
     }
 }
 
-document.getElementById('register__btn').addEventListener('click', () => {
+document.getElementById('form-reg').addEventListener('submit', () => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     register(username, password);
