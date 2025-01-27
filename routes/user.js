@@ -20,7 +20,7 @@ const authenticate = (req, res, next) => {
 };
 
 // Персональна сторінка користувача
-router.get('/me', authenticate, async (req, res) => {
+router.get('/profile', authenticate, async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
         if (!user) {
@@ -33,3 +33,4 @@ router.get('/me', authenticate, async (req, res) => {
 });
 
 module.exports = router;
+//21.31 змінила назву в router.get на profile з me

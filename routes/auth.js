@@ -30,27 +30,23 @@ router.post('/register', async (req, res) => {
 
 // Вхід
 router.post('/login', async (req, res) => {
-    try {
-        const { username, password } = req.body;
+    const { username, password } = req.body;
 
-        // Знайти користувача
+    try {
         const user = await User.findOne({ username });
         if (!user) {
-            return res.status(400).json({ message: 'Неправильний логін або пароль' });
+            return res.status(404).json({ message: 'Користувача не знайдено' });
         }
 
-        // Перевірка пароля
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-            return res.status(400).json({ message: 'Неправильний логін або пароль' });
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: 'Неправильний пароль' });
         }
 
-        // Генерація JWT
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-        res.status(200).json({ message: 'Вхід успішний', token });
-    } catch (err) {
-        res.status(500).json({ message: 'Помилка сервера', error: err.message });
+        const token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET, { expiresIn: '1h' });
+        res.json({ message: 'Успішний вхід', token });
+    } catch (error) {
+        res.status(500).json({ message: 'Помилка сервера', error });
     }
 });
 
