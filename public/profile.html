@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechCon</title>
+    <link
+      rel="shortcut icon"
+      href="#"
+      type="image/x-icon"
+    />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="#">
+  </head>
+    <body>
+        <main id="main">
+          <section class="sidebar">
+            <aside class="sidebar">
+              <div class="setting">
+                <span class="user-name"
+                  >Затягнути логін або електронну пошту користувача</span
+                >
+                <button class="notific-icon" id="notific-icon">
+                  <img src="#" alt="icon for notification in browser" />
+                </button>
+                <button class="sidebar-icon" id="sidebar-icon">
+                  <img src="#" alt="icon for hide sidebar" />
+                </button>
+              </div>
+              <div class="task--button">
+                <button class="new-task" id="new-task">
+                  <img class="plus" src="#" alt="add new task">
+                  <span class="add-task">What to do</span>
+                </button>
+              </div>
+              <div class="list">
+                  <button class="show-list" id="show-list">
+                      <span>List</span>
+                  </button>
+                  <button>
+                      <span>New list</span>
+                  </button>
+              </div>
+              <ul class="list-groups">
+                  <li>Today</li>
+                  <li>Soon</li>
+                  <li>Achive</li>
+              </ul>
+            </aside>
+          </section>
+          <section class="main">
+            <nav class="add-function">
+              <ul class="display">
+                <li class="display-sett">display</li>
+                <li class="display-logs">logs</li>
+              </ul>
+            </nav>
+            <div class="main-content">
+              <p class="page-name" id="page-name">#</p>
+              //Вивести за допомогою js назву обраного списку
+              <button class="main-content--btn">
+                <span class="add-task">Нова задача</span>
+              </button>
+            </div>
+            <div class="task-list">
+              <input
+                type="text"
+                class="task-title"
+                placeholder="Введіть назву задачі"
+                value="#"
+              />
+              <textarea class="task-description" placeholder="Опис"></textarea>
+              <div class="task-actions">
+                <button class="action-button" id="task-date">Коли?</button>
+                <button class="action-button" id="task-prior">Приорітет</button>
+                <div class="task-footer">
+                  <button class="choose-list"><span>#</span></button>
+                  <div class="footer-buttons">
+                    <button class="cancel-button">Відмінити</button>
+                    <button class="add-button">Додати</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="full-list">
+              <ul class="full-list">
+                <li class="list-item"></li>
+              </ul>
+            </div>
+          </section>
+        </main>
+      <script type="module" src="js/profile.js"></script>
+    </body>
+</html>

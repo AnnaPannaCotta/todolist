@@ -19,38 +19,18 @@
         <p>Make your "to do" simple</p>
     </div>
     <div class="form">
-        <form class="entry-form" id="form-ent" action="#">
-            <legend class="form-name">
-                Вхід
-            </legend>
-            <input class="form-input" type="email" name="email" autocomplete="email">
-            <input class="form-input" type="password" name="password" autocomplete="current-password">
-            <button class="form-button" type="submit">Увійти</button>
-            <p><a href="#">забув пароль?</a></p>        
-        </form>
-        <form class="entry-form" id="form-reg" action="#">
-            <legend class="form-name">
-                Реєстрація
-            </legend>
+        <form class="entry-form" id="form-reg">
             <input class="form-input" id="username" type="email" name="email" autocomplete="email">
             <input class="form-input" id="password" type="password" name="password" autocomplete="new-password">
-            <button class="form-button" id="register__btn" type="submit">Зареєструватися</button>
+            <button class="form-button" id="register-btn" type="submit">Зареєструватися</button>
+            <button class="form-button" id="login-btn" type="submit">Увійти</button>
         </form>
+        <p><a href="#">забув пароль?</a></p>    
         <div class="for-reg"><a href="#">зареєструйся</a>, якщо не зробив цього раніше</div>
     </div>
     </header>
     <main> 
-      <div
-            data-hx-trigger="load"
-            data-hx-swap="outerHTML"
-            data-hx-get="main-page.sidebar.partial.html"
-          ></div>
-          <div 
-          data-hx-trigger="load"
-          data-hx-swap="outerHTML"
-          data-hx-get="main-page.main-content.partial.html"
-          ></div>
     </main>
-    <script src="js/index.js"></script>
+    <script type="module" src="js/index.js"></script>
   </body>
 </html>
