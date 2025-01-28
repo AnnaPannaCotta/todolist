@@ -14,23 +14,56 @@
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
-    <header>
-      <div class="header__name">
-        <p>Make your "to do" simple</p>
-    </div>
-    <div class="form">
-        <form class="entry-form" id="form-reg">
-            <input class="form-input" id="username" type="email" name="email" autocomplete="email">
-            <input class="form-input" id="password" type="password" name="password" autocomplete="new-password">
-            <button class="form-button" id="register-btn" type="submit" target="_blank">Зареєструватися</button>
-            <button class="form-button" id="login-btn" type="submit" target="_blank">Увійти</button>
-        </form>
-        <p><a href="#">забув пароль?</a></p>    
-        <div class="for-reg"><a href="#">зареєструйся</a>, якщо не зробив цього раніше</div>
-    </div>
-    </header>
-    <main> 
-    </main>
+      <header class="header">
+          <div class="header--inner">
+            <div class="header__name">
+              <p>Make your<br>
+                "TO DO"<br> 
+                simple</p>
+            </div>
+            <div class="form">
+                <form class="entry-form" id="form-reg">
+                  <input
+                    class="form-input"
+                    id="username"
+                    type="email"
+                    name="email"
+                    autocomplete="email"
+                  /><br>
+                  <input
+                    class="form-input"
+                    id="password"
+                    type="password"
+                    name="password"
+                    autocomplete="new-password"
+                  />
+                  <div class="button__style">
+                    <button
+                      class="form-button"
+                      id="register-btn"
+                      type="submit"
+                      target="_blank"
+                    >
+                      Зареєструватися
+                    </button>
+                    <button
+                      class="form-button"
+                      id="login-btn"
+                      type="submit"
+                      target="_blank"
+                    >
+                      Увійти
+                    </button>
+                  </div>
+                  <p><a href="#">забув пароль?</a></p>
+                  <p class="for-reg">
+                    <a href="#">зареєструйся</a>, якщо не зробив цього раніше
+                  </p>
+                </form> 
+              </div>
+          </div>
+      </header>
+    <main></main>
     <script type="module" src="js/index.js"></script>
   </body>
 </html>
