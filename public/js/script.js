@@ -49,7 +49,7 @@ async function loadProfile() {
     }
 
     try {
-        const response = await fetch('/api/user/profile', {  // ✅ правильний шлях
+        const response = await fetch('/api/user/profile', {  
             method: 'GET',
             headers: { Authorization: `Bearer ${token}` }
         });

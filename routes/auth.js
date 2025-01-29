@@ -46,7 +46,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ message: 'Неправильний пароль' });
         }
 
-        const token = jwt.sign({ id: user._id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '10h' });
+        const token = jwt.sign({ id: user._id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '10d' });
         console.log('Успішний вхід, токен:', token);
         res.json({ message: 'Успішний вхід', token });
     } catch (error) {
