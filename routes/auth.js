@@ -30,22 +30,27 @@ router.post('/register', async (req, res) => {
 
 // Вхід
 router.post('/login', async (req, res) => {
+    console.log('Запит на вхід:', req.body);
     const { username, password } = req.body;
 
     try {
         const user = await User.findOne({ username });
         if (!user) {
+            console.log('Користувача не знайдено');
             return res.status(404).json({ message: 'Користувача не знайдено' });
         }
 
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
+            console.log('Неправильний пароль');
             return res.status(401).json({ message: 'Неправильний пароль' });
         }
 
-        const token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '10h' });
+        console.log('Успішний вхід, токен:', token);
         res.json({ message: 'Успішний вхід', token });
     } catch (error) {
+        console.error('Помилка сервера:', err);
         res.status(500).json({ message: 'Помилка сервера', error });
     }
 });

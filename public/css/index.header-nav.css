@@ -1,24 +1,104 @@
 .header {
-    padding: 40px 100px 40px 100px;
-    position: relative;
-    max-width: 100%;
-    background-color: rgba(17, 17, 16, 0.918);
+    width: 100%;
+    height: 100%;
+    font-family: Montserrat, sans-serif;
+    text-align: center;
 }
-.header__name {
-    display: flex;
+.header--inner {  
+    max-height: 500px;
+    max-width: 1800px;
+    display: inline-flex;
+    margin-top: 200px;
+    padding: 30px 100px 30px 100px;
+    justify-items: center;
     align-items: center;
-    justify-content: center;
-    max-width: 1200px;
-    margin: auto;
+    gap: 30px;
+    border: 2px solid rgb(206, 184, 170);
+    border-radius: 25% 0 25% 0;
+}
+.header__name, .form  { 
+    flex: 1; 
+ }
+.header__name {
+    font-size: 50px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 1.6; 
+    z-index: 1;
+    color: rgba(0, 0, 0, 0.726); 
+}
+.header--text {
+    margin: 10px 10px 10px 10px;
+}
+.header--text:hover {
+    background-color: rgba(223, 198, 181, 1); 
+    border-radius: 25% 0 25% 0;
+    transition: background 0.5s ease-out;    
 }
 .form {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 1200px;
-    margin: auto;
     flex-direction: column;
+    align-items: stretch;
+    box-shadow: none;
 }
-.entry-form {
-    flex-direction: column;
+.form-input {
+    margin: 10px 0 10px 0;
+    padding: 20px 40px 20px 40px; 
+    background: rgba(223, 198, 181, 1);
+    border-style: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    transition: background 0.3s ease;
+}
+.form-input:focus {
+    border-style: none;
+    outline: none;
+    transform: scale(1.1);
+    background: rgb(223, 198, 181);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.button__style {
+    margin: 10px 0 10px 0;
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    justify-content: center;
+}
+.form-button {
+    margin-top: 15px;
+    width: 50%;
+    max-width: 120px;
+    border: none;
+    /* padding: 20px 20px 20px 20px; */
+    height: 55px;
+    background: rgba(223, 198, 181, 1);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+    justify-content: center;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 400;
+    justify-content: center;
+    text-align: center;
+}    
+.form-button:focus {
+    border-style: none;
+    outline: none;
+    transform: scale(1.1);
+    background: rgb(223, 198, 181);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.form--text {
+    font-size: 13px;
+}
+.form--text {
+    margin: 10px 0 10px 0;
+    max-width: 240px;
+}
+.for-reg {
+    justify-content: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.726);
 }

@@ -23,9 +23,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 
 // Відображення головної сторінки
-app.get('/', (req, res) => {
+app.get('/dashboard', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 // Маршрут для особистої сторінки
 app.get('/profile', async (req, res) => {
@@ -61,7 +62,8 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Сервер працює на порту ${PORT}`);
 });
-console.log('Decoded token:', decoded);
+console.log('JWT_SECRET:', process.env.JWT_SECRET);
+
 
 // const path = require('path');
 // const express = require('express');
