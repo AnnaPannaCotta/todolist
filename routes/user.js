@@ -1,26 +1,8 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const authenticate = require('../middleware/authenticate'); 
 const router = express.Router();
-
-// Middleware для перевірки токена
-const authenticate = (req, res, next) => {
-    console.log('Заголовки запиту:', req.headers);
-    const token = req.headers.authorization?.split(' ')[1];
-    if (!token) {
-        return res.status(401).json({ message: 'Немає токена' });
-    }
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        if (!decoded.id) {
-            return res.status(401).json({ message: 'Недійсний токен' });
-        }
-        req.user = { id: decoded.id };
-        next();
-    } catch (err) {
-        res.status(401).json({ message: 'Недійсний токен' });
-    }
-};
 
 // Персональна сторінка користувача
 router.get('/profile', authenticate, async (req, res) => {
@@ -37,4 +19,6 @@ router.get('/profile', authenticate, async (req, res) => {
 });
 
 module.exports = router;
-//21.31 змінила назву в router.get на profile з me
+
+
+

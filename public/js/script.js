@@ -40,32 +40,8 @@ async function login(username, password) {
     }
 }
 
-// Завантаження профілю користувача
-async function loadProfile() {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        alert('Ви не авторизовані. Увійдіть, будь ласка.');
-        return;
-    }
-
-    try {
-        const response = await fetch('/api/user/profile', {  
-            method: 'GET',
-            headers: { Authorization: `Bearer ${token}` }
-        });
-
-        if (response.ok) {
-            window.location.href = '/profile'; // Відображення сторінки профілю
-        } else {
-            const errorData = await response.json();
-            alert(`Помилка завантаження профілю: ${errorData.message}`);
-        }
-    } catch (error) {
-        console.error('Помилка завантаження профілю:', error);
-    }
-}
-
 // Обробник форми
+
 document.getElementById('form-reg').addEventListener('submit', (event) => {
     event.preventDefault(); 
 
