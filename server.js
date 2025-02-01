@@ -33,7 +33,7 @@ app.get('/dashboard', (req, res) => {
 
 // Віддача сторінки профілю (НЕ вимагає авторизації)
 app.get('/profile', (req, res) => {
-    console.log('🔵 Запит на profile.html');
+    console.log('Запит на profile.html');
     res.sendFile(path.join(__dirname, 'public', 'profile.html'));
 });
 
@@ -42,21 +42,21 @@ app.get('/api/user/profile', authenticate, async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
         if (!user) {
-            console.log('❌ Користувач не знайдений');
+            console.log('Користувач не знайдений');
             return res.status(404).json({ message: 'Користувача не знайдено' });
         }
 
-        console.log('✅ Повертаємо профіль:', user.username);
+        console.log('Повертаємо профіль:', user.username);
         res.status(200).json({ username: user.username, email: user.email });
     } catch (err) {
-        console.error('❌ Помилка сервера:', err);
+        console.error('Помилка сервера:', err);
         res.status(500).json({ message: 'Помилка сервера' });
     }
 });
 
 // Додаткове логування
 app.use((req, res, next) => {
-    console.log(`📢 Запит: ${req.method} ${req.url}`);
+    console.log(`Запит: ${req.method} ${req.url}`);
     next();
 });
 
@@ -64,5 +64,5 @@ app.use((req, res, next) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Сервер працює на порту ${PORT}`));
 
-console.log('🔑 JWT_SECRET:', process.env.JWT_SECRET);
+console.log('JWT_SECRET:', process.env.JWT_SECRET);
 
