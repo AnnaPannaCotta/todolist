@@ -10,85 +10,81 @@
       href="#"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="css/index.css">
   </head>
     <body>
-        <main id="main">
-          <section class="sidebar">
-            <aside class="sidebar">
-              <div class="setting">
-                <span class="user-name"
-                  >Затягнути логін або електронну пошту користувача</span
-                >
-                <button class="notific-icon" id="notific-icon">
-                  <img src="#" alt="icon for notification in browser" />
-                </button>
-                <button class="sidebar-icon" id="sidebar-icon">
-                  <img src="#" alt="icon for hide sidebar" />
-                </button>
-              </div>
-              <div class="task--button">
-                <button class="new-task" id="new-task">
-                  <img class="plus" src="#" alt="add new task">
-                  <span class="add-task">What to do</span>
-                </button>
-              </div>
-              <div class="list">
-                  <button class="show-list" id="show-list">
-                      <span>List</span>
-                  </button>
-                  <button>
-                      <span>New list</span>
-                  </button>
-              </div>
-              <ul class="list-groups">
-                  <li>Today</li>
-                  <li>Soon</li>
-                  <li>Achive</li>
-              </ul>
-            </aside>
-          </section>
-          <section class="main">
-            <nav class="add-function">
-              <ul class="display">
-                <li class="display-sett">display</li>
-                <li class="display-logs">logs</li>
-              </ul>
-            </nav>
-            <div class="main-content">
-              <p class="page-name" id="page-name">#</p>
-              //Вивести за допомогою js назву обраного списку
-              <button class="main-content--btn">
-                <span class="add-task">Нова задача</span>
-              </button>
-            </div>
-            <div class="task-list">
-              <input
-                type="text"
-                class="task-title"
-                placeholder="Введіть назву задачі"
-                value="#"
-              />
-              <textarea class="task-description" placeholder="Опис"></textarea>
-              <div class="task-actions">
-                <button class="action-button" id="task-date">Коли?</button>
-                <button class="action-button" id="task-prior">Приорітет</button>
-                <div class="task-footer">
-                  <button class="choose-list"><span>#</span></button>
-                  <div class="footer-buttons">
-                    <button class="cancel-button">Відмінити</button>
-                    <button class="add-button">Додати</button>
-                  </div>
-                </div>
+      <aside class="sidebar">
+        <div class="setting">
+          <span class="user-name"
+            >Затягнути логін або електронну пошту користувача</span
+          >
+          <button class="sidebar__icon" id="theme-icon">
+            <img class="sidebar__svg" src="./img/theme.svg" alt="icon for theme of app" />
+          </button>
+          <button class="sidebar__icon" id="sidebar-icon">
+            <img class="sidebar__svg" src="./img/hide.svg" alt="icon for hide sidebar" />
+          </button>
+        </div>
+        <div class="task--button">
+          <button class="new-task" id="new-task">
+            <img class="plus" src="./img/add.svg" alt="add new task">
+            Додати справу
+          </button>
+        </div>
+        <ul class="list-groups">
+            <li>Сьогодні</li>
+            <li>Невдовзі</li>
+            <li>Архів</li>
+        </ul>
+        <div class="list">
+          <button class="show-list" id="show-list">
+            Список завдань
+          </button>
+          <button class="show-list" id="add-list">
+            Додати список
+          </button>
+      </div>
+      </aside>
+      <main class="main" id="main">
+        <nav class="add-function">
+          <ul class="display">
+            <li class="display-sett">display</li>
+            <li class="display-logs">logs</li>
+          </ul>
+        </nav>
+        <div class="main-content">
+          <p class="page-name" id="page-name">#</p>
+          //Вивести за допомогою js назву обраного списку
+          <button class="main-content--btn">
+            <span class="add-task">Нова задача</span>
+          </button>
+        </div>
+        <div class="task-list">
+          <input
+            type="text"
+            class="task-title"
+            placeholder="Введіть назву задачі"
+            value="#"
+          />
+          <textarea class="task-description" placeholder="Опис"></textarea>
+          <div class="task-actions">
+            <button class="action-button" id="task-date">Коли?</button>
+            <button class="action-button" id="task-prior">Приорітет</button>
+            <div class="task-footer">
+              <button class="choose-list"><span>#</span></button>
+              <div class="footer-buttons">
+                <button class="cancel-button">Відмінити</button>
+                <button class="add-button">Додати</button>
               </div>
             </div>
-            <div class="full-list">
-              <ul class="full-list">
-                <li class="list-item"></li>
-              </ul>
-            </div>
-          </section>
-        </main>
+          </div>
+        </div>
+        <div class="full-list">
+          <ul class="full-list">
+            <li class="list-item"></li>
+          </ul>
+        </div>
+      </main>
       <script type="module" src="js/profile.js"></script>
     </body>
 </html>
