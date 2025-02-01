@@ -15,34 +15,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Підключення до бази MongoDB
+// Підключення до бази
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('База даних підключена'))
     .catch(err => console.error('Помилка підключення до бази:', err));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
-
-// Middleware для перевірки токена
-// const authenticate = (req, res, next) => {
-//     console.log(`🔍 Перевірка токена для ${req.method} ${req.url}`);
-//     const token = req.headers.authorization?.split(' ')[1];
-
-//     if (!token) {
-//         console.log(' Токен відсутній');
-//         return res.status(401).json({ message: 'Немає токена' });
-//     }
-
-//     try {
-//         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-//         req.user = { id: decoded.id };
-//         console.log(' Токен дійсний:', decoded);
-//         next();
-//     } catch (err) {
-//         console.error(' Недійсний токен:', err);
-//         return res.status(401).json({ message: 'Недійсний токен' });
-//     }
-// };
 
 //  Статичні файли
 app.use(express.static(path.join(__dirname, 'public')));
