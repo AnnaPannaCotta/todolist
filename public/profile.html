@@ -32,18 +32,23 @@
           </button>
         </div>
         <ul class="list-groups">
-            <li>Сьогодні</li>
-            <li>Невдовзі</li>
-            <li>Архів</li>
+            <li id="today">Сьогодні</li>
+            <li id="soon">Невдовзі</li>
+            <li id="achive">Архів</li>
         </ul>
         <div class="list">
           <button class="show-list" id="show-list">
-            Список завдань
+            Списки завдань
           </button>
           <button class="show-list" id="add-list">
             Додати список
           </button>
-      </div>
+        </div>
+        <div class="list-name">
+          <ul class="list-name" id="list-name">
+            <li class="list-name" id="list-one"></li>
+          </ul>
+        </div>
       </aside>
       <main class="main" id="main">
         <nav class="add-function">
@@ -68,12 +73,11 @@
           <textarea class="task-description" placeholder="Опис"></textarea>
           <div class="task-actions">
             <button class="action-button" id="task-date">Коли?</button>
-            <button class="action-button" id="task-prior">Приорітет</button>
             <div class="task-footer">
-              <button class="choose-list"><span>#</span></button>
+              <button class="choose-list" id="choose-list"><span>#</span></button>
               <div class="footer-buttons">
-                <button class="cancel-button">Відмінити</button>
-                <button class="add-button">Додати</button>
+                <button class="cancel-button" id="cancel-button">Відмінити</button>
+                <button class="add-button" id="add-button">Додати</button>
               </div>
             </div>
           </div>
