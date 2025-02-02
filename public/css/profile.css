@@ -26,6 +26,7 @@ body {
 .sidebar__icon {
     border: none;
     cursor: pointer;
+    background-color: #ebd5c3;
 }
 .sidebar__svg {
     height: 40px;
@@ -50,6 +51,7 @@ body {
     font-size: 14px;
     letter-spacing: 2px;
     color: #000000b9;
+    background-color: #ebd5c3;
     font-weight: 600;
 }
 .new-task:hover{
@@ -116,6 +118,7 @@ body {
     font-family: Monsterrat;
     letter-spacing: 1.5px;
     color: #000000b9;
+    background-color: #ebd5c3;
     text-transform: uppercase;
 }
 .show-list:hover {
@@ -127,9 +130,3 @@ body {
 .show-list:active {
     scale: 1;
 }
-.main {
-    margin-left: 400px; 
-    padding: 40px;
-    width: 100%;
-    background: #FFFFF0;
-} 
