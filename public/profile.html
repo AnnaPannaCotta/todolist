@@ -46,8 +46,8 @@
             Додати список
           </button>
         </div>
-        <div class="list-name">
-          <ul class="list-name" id="list-name">
+        <div>
+          <ul class="list-container" id="list-name">
             <li class="list-name" id="list-one"></li> <!--Відображаються новостворені списки-->
           </ul>
         </div>
@@ -92,6 +92,67 @@
         </div>
       </main>
       <script type="module" src="js/profile-page.js"></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  const listContainer = document.getElementById("list-name");
+  const addListButton = document.getElementById("add-list");
+
+  // Завантаження списків із localStorage
+  function loadLists() {
+    const savedLists = JSON.parse(localStorage.getItem("taskLists")) || [];
+    listContainer.innerHTML = ""; // Очистити перед оновленням
+
+    savedLists.forEach(listName => {
+      createListElement(listName);
+    });
+  }
+
+  // Функція для створення нового елемента списку
+  function createListElement(name) {
+    const listItem = document.createElement("li");
+    listItem.classList.add("list-name");
+
+    const span = document.createElement("span");
+    // span.classList.add("list-person")
+    span.textContent = name;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = `<img src="./img/del.svg" class="del--svg" alt="Delete" width="20" height="20">`;
+    deleteButton.classList.add("delete-list");
+    deleteButton.addEventListener("click", () => deleteList(name));
+
+    listItem.appendChild(span);
+    listItem.appendChild(deleteButton);
+    listContainer.appendChild(listItem);
+  }
+
+  // Функція для додавання нового списку
+  addListButton.addEventListener("click", () => {
+    const listName = prompt("Введіть назву нового списку:");
+
+    if (listName && listName.trim() !== "") {
+      const savedLists = JSON.parse(localStorage.getItem("taskLists")) || [];
+
+      if (!savedLists.includes(listName)) {
+        savedLists.push(listName);
+        localStorage.setItem("taskLists", JSON.stringify(savedLists));
+        createListElement(listName);
+      }
+    }
+  });
+
+  // Функція для видалення списку
+  function deleteList(name) {
+    let savedLists = JSON.parse(localStorage.getItem("taskLists")) || [];
+    savedLists = savedLists.filter(list => list !== name);
+    localStorage.setItem("taskLists", JSON.stringify(savedLists));
+    loadLists(); // Оновлюємо список
+  }
+
+  // Завантажити списки при завантаженні сторінки
+  loadLists();
+});
+      </script>
       <!-- <script>
      class Task {
       constructor(title, description, dueDate, completed = false) {

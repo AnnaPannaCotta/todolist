@@ -12,7 +12,7 @@ async function loadProfile() {
     });
 
     if (!response.ok) {
-        alert('Помилка авторизації! Перезайдіть у систему.');
+        alert('Помилка авторизації! Перезайдіть в систему.');
         localStorage.removeItem('token');
         window.location.href = '/';
         return;

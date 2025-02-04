@@ -1,8 +1,9 @@
 class Task {
-    constructor(title, description, dueDate, completed = false) {
+    constructor(title, description, dueDate, list, completed = false) {
     this.id = Date.now();
     this.title = title;
     this.description = description;
+    this.list = list;
     this.dueDate = dueDate;
     this.completed = completed;
   }
@@ -19,10 +20,10 @@ constructor() {
   this.renderTasks();
 }
 
-addTask(title, description, dueDate) {
-  if (!title.trim() || !description.trim() || !dueDate.trim()) return;
+addTask(title, description, dueDate, list) {
+  if (!title.trim() || !description.trim() || !dueDate.trim() || !list.trim()) return;
   
-  const newTask = new Task(title, description, dueDate);
+  const newTask = new Task(title, description, dueDate, list);
   this.tasks.push(newTask);
   this.saveToLocalStorage();
   this.renderTasks();
@@ -78,6 +79,7 @@ renderTasks() {
         <p class="task-title">${task.title}</p>
         <p class="task-description">${task.description}</p>
         <span class="task-date">${task.dueDate}</span>
+        <span class="task-list">${task.list}</span>
       </div>
       <div class="task-actions">
         <button class="toggle" data-id="${task.id}">✔</button>
@@ -118,24 +120,46 @@ showArchivedTasks() {
 }
 
 const taskList = new TaskList();
+const chooseListButton = document.getElementById("choose-list");
+let selectedList = "";
+
+chooseListButton.addEventListener("click", () => {
+  const savedLists = JSON.parse(localStorage.getItem("taskLists")) || [];
+  if (savedLists.length === 0) {
+    alert("Немає доступних списків. Спочатку створіть список.");
+    return;
+  }
+  
+  const listChoice = prompt("Оберіть список: " + savedLists.join(", "));
+  if (listChoice && savedLists.includes(listChoice)) {
+    selectedList = listChoice;
+    chooseListButton.querySelector("span").textContent = listChoice;
+  } else {
+    alert("Неправильний вибір списку.");
+  }
+});
 
 document.getElementById("add-button").addEventListener("click", () => {
 const title = document.querySelector(".task-title").value;
 const description = document.querySelector(".task-description").value;
 const dueDate = document.getElementById("datePicker").value;
 
-if (title && description && dueDate) {
-  taskList.addTask(title, description, dueDate);
-  document.querySelector(".task-title").value = "#";
+if (title && description && dueDate && selectedList) {
+  taskList.addTask(title, description, dueDate, selectedList);
+  document.querySelector(".task-title").value = "Заголовок";
   document.querySelector(".task-description").value = "";
   document.getElementById("datePicker").value = "";
+  chooseListButton.querySelector("span").textContent = "Виконавець";
+  selectedList = "";
 }
 });
 
 document.getElementById("cancel-button").addEventListener("click", () => {
-document.querySelector(".task-title").value = "#";
+document.querySelector(".task-title").value = "";
 document.querySelector(".task-description").value = "";
 document.getElementById("datePicker").value = "";
+chooseListButton.querySelector("span").textContent = "";
+selectedList = "";
 });
 
 // Додаємо подію для кнопки "Архів"

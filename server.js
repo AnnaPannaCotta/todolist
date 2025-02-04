@@ -13,7 +13,6 @@ const authenticate = require('./middleware/authenticate');
 const app = express();
 
 app.use(express.json());
-app.use(cors());
 
 // Підключення до бази
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -37,7 +36,7 @@ app.get('/profile', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'profile.html'));
 });
 
-// API: Отримати дані профілю (вимагає авторизації)
+// Отримати дані профілю (вимагає авторизації)
 app.get('/api/user/profile', authenticate, async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
@@ -62,7 +61,7 @@ app.use((req, res, next) => {
 
 // Запуск сервера
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Сервер працює на порту ${PORT}`));
+app.listen(PORT, () => console.log(`Сервер працює на порту ${PORT}`));
 
 console.log('JWT_SECRET:', process.env.JWT_SECRET);
 

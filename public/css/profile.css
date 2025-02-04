@@ -134,3 +134,22 @@ body {
     text-decoration: line-through;
     opacity: 0.6;
   }
+
+  .list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 50px 0 50px;
+}
+.list-name {
+    justify-content: space-between;
+    font-size: 24px;
+    font-family: Monsterrat;
+    letter-spacing: 1.5px;
+    color: #000000b9;
+    background-color: #ebd5c3;
+    font-weight: 400;
+}
+.del--svg {
+    background-color: #ebd5c3; 
+}
