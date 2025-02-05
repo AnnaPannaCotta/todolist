@@ -63,27 +63,32 @@ loadFromLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key)) || [];
 }
 
-renderTasks() {
+renderTasks(filterDate = null) {
   const taskContainer = document.querySelector(".full-list ul");
   if (!taskContainer) return;
 
   taskContainer.innerHTML = "";
 
-  this.tasks.forEach(task => {
-    const taskElement = document.createElement("li");
-    taskElement.classList.add("list-item");
-    if (task.completed) taskElement.classList.add("completed");
+  const filteredTasks = filterDate 
+  ? this.tasks.filter(task => task.dueDate === filterDate)
+  : this.tasks;
+
+filteredTasks.forEach(task => {
+  const taskElement = document.createElement("li");
+  taskElement.classList.add("list-item");
+  if (task.completed) taskElement.classList.add("completed");
+
 
     taskElement.innerHTML = `
       <div class="task-content">
         <p class="task-title">${task.title}</p>
         <p class="task-description">${task.description}</p>
         <span class="task-date">${task.dueDate}</span>
-        <span class="task-list">${task.list}</span>
+        <span class="task-one">${task.list}</span>
       </div>
       <div class="task-actions">
-        <button class="toggle" data-id="${task.id}">✔</button>
-        <button class="delete" data-id="${task.id}">🗑</button>
+        <button class="toggle" data-id="${task.id}">Виконано</button>
+        <button class="delete" data-id="${task.id}">Видалити</button>
       </div>
     `;
 
@@ -118,6 +123,15 @@ showArchivedTasks() {
   alert(`Архівовані завдання:\n\n${archivedList}`);
 }
 }
+
+document.getElementById("today").addEventListener("click", () => {
+  const today = new Date().toISOString().split("T")[0]; // Отримуємо поточну дату у форматі YYYY-MM-DD
+  taskList.renderTasks(today);
+});
+
+document.getElementById("all-tasks").addEventListener("click", () => {
+  taskList.renderTasks();
+});
 
 const taskList = new TaskList();
 const chooseListButton = document.getElementById("choose-list");

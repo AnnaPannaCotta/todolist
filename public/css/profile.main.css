@@ -2,6 +2,7 @@
     margin-left: 400px; 
     padding: 40px;
     width: 100%;
+    height: 100%;
     background: #fcf6e6;
 } 
 ul {
@@ -54,11 +55,164 @@ ul {
     height: 60px;
 }
 .task-list {
+    max-width: 1500px;
     margin: 0 40px 0 0;
-    padding: 30px 50px 30px 50px;
+    padding: 0 50px 30px 50px;
     display: flex;
     flex-direction: column;
 }
 .task-title, .task-description {
     border-style: none;
+}
+.task-title {
+    margin: 15px;
+    max-width: 500px;
+    height: 35px;
+    background: #ebd5c3;
+    border-radius: 15px;
+    padding: 0 15px 0 15px;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+    color: #000000b9;
+    transition: transform 0.3s ease; 
+}
+
+.task-description {
+    display: flex;
+    margin: 15px;
+    min-height: 35px;
+    background: #ebd5c3;
+    border-radius: 15px;
+    padding: 10px;
+    font-family: Montserrat;
+    color: #000000b9;
+    font-size: 15px;
+    font-weight: 400;
+    transition: transform 0.3s ease; 
+}
+.task-description:focus, .task-title:focus {
+    scale: 1.03;
+    outline: none;
+}
+.task-actions {
+    display: flex;
+    margin: 15px;
+    gap: 10px;
+}
+#datePicker {
+    max-width: 130px;
+    max-height: 40px;
+    background: #ebd5c3;
+    border-radius: 15px;
+    border: none;
+    transition: transform 0.3s ease;
+    padding: 10px;
+    text-align: center;
+    font-family: Montserrat;
+    color: #000000b9;
+    font-size: 14px;
+    font-weight: 500;
+}
+#datePicker:focus {
+    scale: 1.03;
+    outline: none;
+}
+.action-button {
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    background: #ebd5c3;
+    font-family: Montserrat;
+    color: #000000b9;
+    font-size: 14px;
+    font-weight: 500;
+}
+.action-button:active, .choose-list:active, .add-button:active, .cancel-button:active {
+    scale: 1.06;
+    outline: none;
+}
+.task-footer {
+    display: flex;
+    gap: 60px;
+}
+.choose-list {
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    background: #ebd5c3;
+    font-family: Montserrat;
+    color: #000000b9;
+    font-size: 14px;
+    font-weight: 500;
+}
+.footer-buttons {
+    display: flex;
+    gap: 10px;
+}
+.add-button, .cancel-button {
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    background: rgb(211, 186, 169);
+    font-family: Montserrat;
+    color: #000000b9;
+    font-size: 16px;
+    font-weight: 600; 
+    cursor: pointer;   
+}
+.full-list {
+    max-width: 1500px;
+    padding: 30px 50px 30px 50px;
+    font-family: Montserrat;
+}
+.list-item {
+    font-family: Montserrat;
+    border: 0.5px solid rgb(206, 184, 170);
+}
+p.task-title {
+    background: #fcf6e6;
+    margin: 15px 15px 0 15px;
+    border-bottom: 0.5px solid rgb(206, 184, 170);
+    border-radius: 0;
+}
+p.task-description {
+    padding: 15px 10px 30px 10px;
+    background: #fcf6e6;
+    margin: 0 15px 0 15px;
+    gap: 15px;
+}
+.task-date {
+    padding: 10px 10px 10px 10px;
+    margin: 15px 0 0 15px;
+    background: #ebd5c3;
+    border-radius: 15px;
+}
+.task-one {
+    padding: 10px 10px 10px 10px;
+    margin: 15px 0 0 15px;
+    background: #ebd5c3;
+    border-radius: 15px;
+    font-weight: 500;
+}
+.task-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.toggle, .delete {
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    font-family: Montserrat;
+    color: #000000b9;
+    font-size: 16px;
+    font-weight: 600; 
+    cursor: pointer;   
+    background: #ebd5c3;
 }

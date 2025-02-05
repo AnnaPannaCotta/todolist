@@ -35,7 +35,7 @@
         </div>
         <ul class="list-groups">
             <li id="today">Сьогодні</li> <!--Назва стандартного списку-->
-            <li id="soon">Невдовзі</li> <!--Назва стандартного списку-->
+            <li id="all-tasks">Всі завдання</li> <!--Назва стандартного списку-->
             <li id="achive">Архів</li> <!--Назва стандартного списку-->
         </ul>
         <div class="list">
@@ -61,23 +61,22 @@
         <div class="main-content">
           <p class="page-name" id="page-name">#</p>
           <!-- //Вивести за допомогою js назву обраного списку -->
-          <button class="main-content--btn"> <!--Кнопка для додавання нової справи-->
-            <img class="plus-main" src="./img/add.svg" alt="add new task">Додати справу
-          </button>
+          <!-- <button class="main-content--btn"> <!--Кнопка для додавання нової справи-->
+            <!-- <img class="plus-main" src="./img/add.svg" alt="add new task">Додати справу
+          </button> --> 
         </div>
         <div class="task-list"> 
           <input
             type="text"
             class="task-title"
             placeholder="Введіть назву задачі"
-            value="#"
+            value=""
           /> <!--Поле для уведення назви справи -->
           <textarea class="task-description" placeholder="Опис"></textarea>
           <div class="task-actions">
-            <input type="text" id="datePicker"> <!--Для календаря -->
-            <button class="action-button" id="openCalendar">Коли?</button>
+            <input type="date" id="datePicker"> <!--Для календаря -->
             <div class="task-footer">
-              <button class="choose-list" id="choose-list"><span>#</span></button> <!--Можна обрати список з усіх існуючих -->
+              <button class="choose-list" id="choose-list"><span>Виконавець</span></button> <!--Можна обрати список з усіх існуючих -->
               <div class="footer-buttons">
                 <button class="add-button" id="add-button">Додати</button> <!--Додати завдання -->
                 <button class="cancel-button" id="cancel-button">Відмінити</button> <!--Відмінити створення завдання -->
@@ -86,7 +85,7 @@
           </div>
         </div>
         <div class="full-list">
-          <ul class="full-list">
+          <ul class="full-lists">
             <li class="list-item"></li> <!--Після додавання завдання воно буде відображатись тут -->
           </ul>
         </div>
