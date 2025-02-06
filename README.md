@@ -1,4 +1,4 @@
-https://todolist-production-56d5.up.railway.app/profile
+https://todolist-production-56d5.up.railway.app
 
 
 Орієнтовна структура проекту: 
