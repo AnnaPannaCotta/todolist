@@ -50,8 +50,8 @@ router.post('/login', async (req, res) => {
         console.log('Успішний вхід, токен:', token);
         res.json({ message: 'Успішний вхід', token });
     } catch (error) {
-        console.error('Помилка сервера:', err);
-        res.status(500).json({ message: 'Помилка сервера', err });
+        console.error('Помилка сервера:', error);
+        res.status(500).json({ message: 'Помилка сервера', error });
     }
 });
 
