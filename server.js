@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const cors = require('cors');
 const User = require('./models/User');
 require('dotenv').config();
 
