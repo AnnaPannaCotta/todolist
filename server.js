@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 
 // Підключення до бази
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('База даних підключена'))
     .catch(err => console.error('Помилка підключення до бази:', err));
 
