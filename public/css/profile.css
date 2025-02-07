@@ -1,12 +1,11 @@
 body {
-    display: flex;
     margin: 0;
-    height: 100%;
+    height: 100vh;
     font-family: Montserrat;
 }
+
 .sidebar {
     width: 400px; 
-    /* background-color: #fceee3; */
     background-color: #ebd5c3;
     height: 100vh; 
     position: fixed;
@@ -152,4 +151,27 @@ body {
 }
 .del--svg {
     background-color: #ebd5c3; 
+}
+@media (max-width: 1200px) {
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        transform: translateX(-100%);
+    }
+    #main {
+        margin-left: 0px;    
+    } 
+    .sidebar.open {
+        left: 25%;
+    }
+    #main.open {
+        margin-left: 25%;    
+    } 
+    .setting {
+
+    }
+
 }
