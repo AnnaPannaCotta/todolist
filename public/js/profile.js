@@ -19,7 +19,7 @@ async function loadProfile() {
     }
 
     const userData = await response.json();
-    document.getElementById('username').textContent = userData.username;
+    document.querySelector(".user-name").textContent = userData.username;
 }
 
 window.onload = loadProfile;

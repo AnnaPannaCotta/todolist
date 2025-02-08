@@ -18,6 +18,9 @@
           <span class="user-name"
             >Затягнути логін або електронну пошту користувача</span
           >
+          <button class="sidebar__icon" id="nav--btn">
+            <img class="sidebar__svg" src="./img/hide.svg" alt="icon for hide sidebar" />
+          </button>
         </div>
         <div class="task--button">
           <button class="new-task" id="new-task"> <!--Кнопка для додавання нової справи-->
@@ -26,16 +29,16 @@
           </button>
         </div>
         <ul class="list-groups">
-            <li id="today">Сьогодні</li> <!--Назва стандартного списку-->
-            <li id="all-tasks">Всі завдання</li> <!--Назва стандартного списку-->
-            <li id="achive">Архів</li> <!--Назва стандартного списку-->
+            <li class="day-item" id="today">Сьогодні</li> <!--Назва стандартного списку-->
+            <li class="day-item" id="all-tasks">Всі завдання</li> <!--Назва стандартного списку-->
+            <li class="day-item" id="archive">Архів</li> <!--Назва стандартного списку-->
         </ul>
         <div class="list">
           <button class="show-list" id="show-list"> <!--Відображає всі списки завдань-->
-            Списки завдань
+            Користувачі
           </button>
           <button class="show-list" id="add-list"> <!--Додає новий список-->
-            Додати список
+            <img class="plus-list" src="./img/add.svg" alt="add new task">
           </button>
         </div>
         <div>
@@ -46,8 +49,8 @@
       </aside>
       <main class="main" id="main">
         <nav class="add-function">
-          <p class="page-name" id="page-name">#</p> 
-          <button class="nav--btn" id="nav--btn"><img class="logs" src="./img/logs.svg" alt="logs"></button>
+          <p class="page-name" id="page-name">Всі завдання</p> 
+          <button class="nav--btn" id="nav--btn"><img class="logs" src="./img/hide.svg" alt="logs"></button>
         </nav>
         <div class="task-list"> 
           <input
@@ -58,11 +61,11 @@
           /> <!--Поле для уведення назви справи -->
           <textarea class="task-description" placeholder="Опис" maxlength="250"></textarea>
           <div class="task-actions">
-            <input type="date" id="datePicker" placeholder="date" value="date"> <!--Для календаря -->
-            <button class="choose-list" id="choose-list"><span>Виконавець</span></button> <!--Можна обрати список з усіх існуючих -->
+            <input type="date" id="datePicker" placeholder="date" type="button"> <!--Для календаря -->
+            <button class="choose-list" id="choose-list" type="button"><span>Виконавець</span></button> <!--Можна обрати список з усіх існуючих -->
             <div class="task-footer">
-                <button class="add-button" id="add-button">Додати</button> <!--Додати завдання -->
-                <button class="cancel-button" id="cancel-button">Відмінити</button> <!--Відмінити створення завдання -->
+                <button class="add-button" id="add-button" type="button">Додати</button> <!--Додати завдання -->
+                <button class="cancel-button" id="cancel-button" type="button">Відмінити</button> <!--Відмінити створення завдання -->
             </div>
           </div>
         </div>
@@ -72,73 +75,6 @@
           </ul>
         </div>
       </main>
-      <script type="module" src="js/profile-page.js"></script>
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-  const listContainer = document.getElementById("list-name");
-  const addListButton = document.getElementById("add-list");
-
-  // Завантаження списків із localStorage
-  function loadLists() {
-    const savedLists = JSON.parse(localStorage.getItem("taskLists")) || [];
-    listContainer.innerHTML = ""; // Очистити перед оновленням
-
-    savedLists.forEach(listName => {
-      createListElement(listName);
-    });
-  }
-
-  // Функція для створення нового елемента списку
-  function createListElement(name) {
-    const listItem = document.createElement("li");
-    listItem.classList.add("list-name");
-
-    const span = document.createElement("span");
-    // span.classList.add("list-person")
-    span.textContent = name;
-
-    const deleteButton = document.createElement("button");
-    deleteButton.innerHTML = `<img src="./img/del.svg" class="del--svg" alt="Delete" width="20" height="20">`;
-    deleteButton.classList.add("delete-list");
-    deleteButton.addEventListener("click", () => deleteList(name));
-
-    listItem.appendChild(span);
-    listItem.appendChild(deleteButton);
-    listContainer.appendChild(listItem);
-  }
-
-  // Функція для додавання нового списку
-  addListButton.addEventListener("click", () => {
-    const listName = prompt("Введіть назву нового списку:");
-
-    if (listName && listName.trim() !== "") {
-      const savedLists = JSON.parse(localStorage.getItem("taskLists")) || [];
-
-      if (!savedLists.includes(listName)) {
-        savedLists.push(listName);
-        localStorage.setItem("taskLists", JSON.stringify(savedLists));
-        createListElement(listName);
-      }
-    }
-  });
-
-  // Функція для видалення списку
-  function deleteList(name) {
-    let savedLists = JSON.parse(localStorage.getItem("taskLists")) || [];
-    savedLists = savedLists.filter(list => list !== name);
-    localStorage.setItem("taskLists", JSON.stringify(savedLists));
-    loadLists(); // Оновлюємо список
-  }
-
-  // Завантажити списки при завантаженні сторінки
-  loadLists();
-});
-
-
-document.getElementById("nav--btn").addEventListener("click", function () {
-    document.getElementById("sidebar").classList.toggle("open");
-    document.getElementById("main").classList.toggle("open");
-});
-      </script>
+      <script type="module" src="js/profile-page.js" defer></script>
     </body>
 </html>

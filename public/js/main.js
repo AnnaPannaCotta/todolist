@@ -178,6 +178,6 @@ selectedList = "";
 });
 
 // Додаємо подію для кнопки "Архів"
-document.getElementById("achive").addEventListener("click", () => {
+document.getElementById("archive").addEventListener("click", () => {
 taskList.showArchivedTasks();
 });

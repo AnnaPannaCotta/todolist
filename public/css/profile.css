@@ -24,6 +24,17 @@ body {
     text-transform: uppercase;
     gap: 15px;
 }
+.sidebar__icon {
+    border: none;
+    cursor: pointer;
+    background-color: #ebd5c3;
+    visibility: hidden;
+}
+.sidebar__svg {
+    height: 40px;
+    width: 40px;
+    transition: transform 0.3s ease; 
+}
 .new-task {
     padding: 10px;
     border: none;
@@ -65,7 +76,7 @@ body {
     color: #000000b9;
 }
 .list, .list-groups {
-    padding: 20px;
+    padding: 10px;
     display: flex;
 }
 .list-groups {
@@ -79,7 +90,7 @@ body {
     text-transform: uppercase;
 }
 .list-groups li {
-    padding: 10px 10px 10px 30px;
+    padding: 10px 10px 10px 20px;
     transition: transform 0.3s ease;
 }
 .list-groups li:hover {
@@ -95,10 +106,9 @@ body {
     justify-content: space-between;
 }
 .show-list {
+    padding: 0 0 0 20px;
     border: none;
-    padding: 10px;
     height: 60px;
-    width: 120px;
     font-size: 16px;
     font-family: Monsterrat;
     letter-spacing: 1.5px;
@@ -108,8 +118,6 @@ body {
 }
 .show-list:hover {
     scale: 1.06;
-    background: rgba(223, 198, 181, 1);   
-    border-radius: 10px;
     cursor: pointer;
 }
 .show-list:active {
@@ -122,8 +130,8 @@ body {
 .list-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 0 50px 0 50px;
+    gap: 10px;
+    padding: 0 30px 0 30px;
 }
 .list-name {
     justify-content: space-between;
@@ -133,10 +141,25 @@ body {
     color: #000000b9;
     background-color: #ebd5c3;
     font-weight: 400;
+    gap: 20px;
 }
-
 .del--svg {
     background-color: #ebd5c3; 
+}
+.list-person {
+    margin-right: 10px;
+    font-size: 18px;
+    font-family: Monsterrat;
+    letter-spacing: 2px;
+    list-style: none;
+    flex-direction: column;
+    line-height: 2;
+    color: #000000b9;
+    text-transform: uppercase;
+}
+.plus-list {
+    width: 30px;
+    height: 30px;
 }
 @media (max-width: 1200px) {
 
@@ -172,5 +195,8 @@ body {
 @media (max-width: 535px) {
     .sidebar {
         width: 100%;
+    }
+    .sidebar__icon {
+        visibility: visible;
     }
 }

@@ -10,6 +10,7 @@ ul {
     list-style: none;
 }
 .add-function {
+    padding: 0 50px 0 50px;
     display: flex;
     justify-content: space-between;
 }
@@ -21,30 +22,28 @@ ul {
     all: unset;
 }
 .logs {
-    border: none;
+    visibility: hidden;
     height: 40px;
     width: 40px;
     transition: transform 0.3s ease; 
-    background: #ebd5c3;
-    border-radius: 55%;
 }
 .logs:hover {
     scale: 1.1;
-    background: #ebd5c3;   
-    border-radius: 55%;
     cursor: pointer;
 }
 .logs:active {
     scale: 1;
 }
 .page-name {
-    padding: 20px 40px 20px 40px;
+    padding: 15px 15px 15px 15px;
     font-size: 34px;
-    font-family: Poppins;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #000000b9;
 }
 .task-list {
     max-width: 1500px;
-    margin: 0 40px 0 0;
+    margin: 0 0 0 0;
     padding: 20px 50px 20px 50px;
     display: flex;
     flex-direction: column;
@@ -86,6 +85,9 @@ ul {
 }
 
 #datePicker {
+    -webkit-appearance: none;
+    -moz-appearance: none;   
+    appearance: none;
     max-width: 130px;
     max-height: 40px;
     background: #ebd5c3;
@@ -230,6 +232,9 @@ p.task-description {
     .task-list {
         padding-bottom: 10px;
     }
+    .logs {
+        visibility: visible;
+    }
 }
 @media (max-width: 810px) {
     .main {
@@ -240,8 +245,8 @@ p.task-description {
         font-size: 26px;
     }
     .logs {
-        height: 30px;
-        width: 30px;
+        height: 15px;
+        width: 15px;
     }
     .task-list, .full-list {
         padding: 10px 30px 10px 30px;
