@@ -60,7 +60,8 @@ saveToLocalStorage() {
 }
 
 loadFromLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key)) || [];
+  const storedTasks = JSON.parse(localStorage.getItem(key)) || [];
+  return storedTasks.map(task => new Task(task.title, task.description, task.dueDate, task.list, task.completed));
 }
 
 renderTasks(filterDate = null) {
@@ -83,10 +84,10 @@ filteredTasks.forEach(task => {
       <div class="task-content">
         <p class="task-title">${task.title}</p>
         <p class="task-description">${task.description}</p>
-        <span class="task-date">${task.dueDate}</span>
-        <span class="task-one">${task.list}</span>
       </div>
       <div class="task-actions">
+        <span class="task-date">${task.dueDate}</span>
+        <span class="task-one">${task.list}</span>
         <button class="toggle" data-id="${task.id}">Виконано</button>
         <button class="delete" data-id="${task.id}">Видалити</button>
       </div>
@@ -160,7 +161,7 @@ const dueDate = document.getElementById("datePicker").value;
 
 if (title && description && dueDate && selectedList) {
   taskList.addTask(title, description, dueDate, selectedList);
-  document.querySelector(".task-title").value = "Заголовок";
+  document.querySelector(".task-title").value = "";
   document.querySelector(".task-description").value = "";
   document.getElementById("datePicker").value = "";
   chooseListButton.querySelector("span").textContent = "Виконавець";

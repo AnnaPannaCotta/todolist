@@ -3,19 +3,27 @@
     padding: 40px;
     width: 100%;
     height: 100%;
-    background: #fcf6e6;
+    background-color: #fcf6e6;;
 } 
+
 ul {
     list-style: none;
 }
-.display-logs {
+.add-function {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+}
+.nav--btn {
+    all: unset;
+    z-index: 10;
 }
 .logs {
+    border: none;
     height: 40px;
     width: 40px;
     transition: transform 0.3s ease; 
+    background: #ebd5c3;
+    border-radius: 55%;
 }
 .logs:hover {
     scale: 1.1;
@@ -26,38 +34,15 @@ ul {
 .logs:active {
     scale: 1;
 }
-.main-content {
-    padding: 30px 50px 30px 50px;
+.page-name {
+    padding: 20px 40px 20px 40px;
     font-size: 34px;
     font-family: Poppins;
-}
-.main-content--btn {
-    margin-top: 20px;
-    padding: 5px 5px 5px 5px;
-    display: flex;
-    gap: 25px;
-    font-size: 40px;
-    font-family: Poppins;
-    color: #000000b9;
-    border: none;
-    background: #fcf6e6;
-    transition: transform 0.6s ease;
-}
-.main-content--btn:hover {
-    background: #ebd5c3;
-    border-radius: 15px;
-    cursor: pointer;
-    scale: 1.06;
-}
-.plus-main {
-    /* padding-bottom: 5px; */
-    width: 60px;
-    height: 60px;
 }
 .task-list {
     max-width: 1500px;
     margin: 0 40px 0 0;
-    padding: 0 50px 30px 50px;
+    padding: 20px 50px 20px 50px;
     display: flex;
     flex-direction: column;
 }
@@ -96,11 +81,7 @@ ul {
     scale: 1.03;
     outline: none;
 }
-.task-actions {
-    display: flex;
-    margin: 15px;
-    gap: 10px;
-}
+
 #datePicker {
     max-width: 130px;
     max-height: 40px;
@@ -135,9 +116,9 @@ ul {
     outline: none;
 }
 .task-footer {
-    display: flex;
-    gap: 60px;
+    gap: 10px;
 }
+
 .choose-list {
     width: 100px;
     height: 40px;
@@ -166,13 +147,27 @@ ul {
     cursor: pointer;   
 }
 .full-list {
+    min-height: 200px;
     max-width: 1500px;
-    padding: 30px 50px 30px 50px;
+    padding: 20px 50px 20px 50px;
     font-family: Montserrat;
+    display: flex;
+    max-height: 600px;
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+}
+.full-lists {
+    box-sizing: border-box;
 }
 .list-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     font-family: Montserrat;
     border: 0.5px solid rgb(206, 184, 170);
+    /* height: 40%; */
+    scroll-snap-align: start;
+    box-sizing: border-box;
 }
 p.task-title {
     background: #fcf6e6;
@@ -181,28 +176,30 @@ p.task-title {
     border-radius: 0;
 }
 p.task-description {
-    padding: 15px 10px 30px 10px;
+    padding: 10px;
     background: #fcf6e6;
     margin: 0 15px 0 15px;
     gap: 15px;
+    font-size: 16px;
 }
 .task-date {
-    padding: 10px 10px 10px 10px;
-    margin: 15px 0 0 15px;
+    padding: 10px;
     background: #ebd5c3;
     border-radius: 15px;
 }
 .task-one {
-    padding: 10px 10px 10px 10px;
-    margin: 15px 0 0 15px;
+    padding: 10px;
     background: #ebd5c3;
     border-radius: 15px;
     font-weight: 500;
+    margin-right: 40px;
 }
 .task-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 15px;
+    gap: 10px;
+    margin: 10px 10px 10px 10px;
+    box-sizing: border-box;
 }
 .toggle, .delete {
     width: 100px;
@@ -214,5 +211,113 @@ p.task-description {
     font-size: 16px;
     font-weight: 600; 
     cursor: pointer;   
-    background: #ebd5c3;
+    background: rgb(211, 186, 169);
+    transition: transform 0.3s ease; 
+}
+.toggle:hover, .delete:hover, .add-button:hover, .cancel-button:hover {
+    scale: 1.1;
+}
+@media (max-width: 1200px) {
+    .main-content {
+        padding: 10px 50px 10px 50px;
+    }
+    .list-item {
+        height: 100%;
+    }
+    .task-list {
+        padding-bottom: 10px;
+    }
+}
+@media (max-width: 810px) {
+    .main {
+        padding: 20px;
+    }
+    .page-name {
+        padding: 10px 25px 10px 25px;
+        font-size: 26px;
+    }
+    .logs {
+        height: 30px;
+        width: 30px;
+    }
+    .task-list, .full-list {
+        padding: 10px 30px 10px 30px;
+    }
+    .task-actions {
+        justify-content: flex-end;
+        gap: 20px;
+    }
+    .choose-list, .add-button, .cancel-button, #datePicker {
+        font-size: 12px;
+        width: 80px;
+        height: 30px;
+    }
+    .task-title {
+        font-size: 14px;
+        margin: 5px;
+    }
+    .task-description {
+        margin: 5px;
+    }
+    .list-item {
+        height: 60%;
+    }
+    .toggle, .delete {
+        height: 30px;
+        width: 80px;
+        font-size: 12px;
+    }
+    .task-one, .task-date {
+        padding: 5px;
+        font-size: 12px;
+        
+        .task-one {
+            margin-right: 20px;
+        }
+    }
+}
+@media (max-width: 535px) {
+    .main {
+        padding: 5px;
+    }
+    .task-description {
+        min-height: 20px;
+    }
+    .task-list, .full-list {
+        margin: 0;
+        padding: 15px 5px 15px 5px;
+    }
+    .task-actions {
+        gap: 5px;
+        flex-shrink: inherit;
+    }
+    
+    .choose-list, .add-button, .cancel-button, #datePicker {
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        background: none;
+        border: 0.5px solid rgb(206, 184, 170);
+    }
+
+    #datePicker {
+        font-size: 10px;
+    }
+    p.task-title {
+        margin: 10px 0 0 0;
+    }
+    p.task-description {
+        padding: 5px;
+        margin: 0 5px 0 5px;
+        gap: 5px;
+        font-size: 14px;
+    }
+    .list-item {
+        height: 80%;
+    }
+    .task-one {
+        margin-right: 0px;
+        text-align: center;
+    }
+
 }
