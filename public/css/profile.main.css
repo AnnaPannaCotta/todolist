@@ -17,6 +17,9 @@ ul {
     all: unset;
     z-index: 10;
 }
+.nav--btn {
+    all: unset;
+}
 .logs {
     border: none;
     height: 40px;
