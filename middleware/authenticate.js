@@ -12,8 +12,10 @@ const authenticate = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = { id: decoded.id };
+        // req.user = { id: decoded.id };
         console.log(' Токен дійсний:', decoded);
+
+        req.user = decoded;
         next();
     } catch (err) {
         console.error(' Недійсний токен:', err);
