@@ -18,8 +18,6 @@ async function loadProfile() {
         return;
     }
 
-    const userData = await response.json();
-    document.querySelector(".user-name").textContent = userData.username;
 }
 
 window.onload = loadProfile;

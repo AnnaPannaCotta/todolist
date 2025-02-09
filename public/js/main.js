@@ -179,5 +179,11 @@ selectedList = "";
 
 // Додаємо подію для кнопки "Архів"
 document.getElementById("archive").addEventListener("click", () => {
-taskList.showArchivedTasks();
+  taskList.showArchivedTasks();
 });
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const userDate = JSON.parse(localStorage.getItem("user")) || {};
+//   document.querySelector(".user-name").textContent = userDate.username;
+// });
