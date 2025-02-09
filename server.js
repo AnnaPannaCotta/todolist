@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 const cors = require("cors");
-app.use(cors({ origin: "todolist-production-56d5.up.railway.app", credentials: true }));
+app.use(cors({ origin: "https://todolist-production-56d5.up.railway.app", credentials: true }));
 
 // Підключення до бази
 mongoose.connect(process.env.MONGO_URI)
