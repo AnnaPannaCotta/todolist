@@ -163,6 +163,7 @@ ul {
 }
 .full-lists {
     box-sizing: border-box;
+    flex-grow: 1;
 }
 .list-item {
     display: flex;
