@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const authenticate = (req, res, next) => {
-    console.log(`🔍 Перевірка токена для ${req.method} ${req.url}`);
+    console.log(`Перевірка токена для ${req.method} ${req.url}`);
     const token = req.headers.authorization?.split(' ')[1];
 
     if (!token) {

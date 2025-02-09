@@ -4,14 +4,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const User = require('./models/User');
-
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const authenticate = require('./middleware/authenticate'); 
 
 const app = express();
-
 app.use(express.json());
+
+const cors = require("cors");
+app.use(cors({ origin: "todolist-production-56d5.up.railway.app", credentials: true }));
 
 // Підключення до бази
 mongoose.connect(process.env.MONGO_URI)
